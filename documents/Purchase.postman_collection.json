@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "2bb6f203-1af0-4be8-be9d-a246bd046153",
+		"name": "Purchase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"user1\",\r\n    \"email\":\"test@gmail.com\",\r\n    \"mobile\": \"1234567890\",\r\n    \"password\": \"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4500/sign_up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"sign_up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4500/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2Mzk4MzE4OTJ9.3gOudcaWwL_LmmV_q6lwYkv8VDOA4CNzqu4Bfcjo4lg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/logu_/Desktop/products.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4500/products/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"products",
+						"create"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2Mzk5NjY3MDN9.6QPQLihPDp0mKktT4ERozPTfUVDm44jB5b6_8oTveOA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer\": \"user1\",\r\n    \"product\": \"mb1\",\r\n    \"quantity\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4500/order/create",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"order",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2NDAwNTM3MDB9.XCEDJQiEITs6v0PiVt5kc5G0PUgqzXYnv0fvu-1Dok8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer\": \"user1\",\r\n    \"product\": \"mb1\",\r\n    \"quantity\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4500/order/update/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"order",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2NDAwNTM3MDB9.XCEDJQiEITs6v0PiVt5kc5G0PUgqzXYnv0fvu-1Dok8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product\": \"mb1\", \"customer\": \"user1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4500/order/cancel/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"order",
+						"cancel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list ordered products based on customer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2NDAwNTgwNDd9.dGILocNKTfKX5cGEfBeP0W_6mDoIBPsL8ckTVZgr8Ok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4500/order/getorders_customer/?customer=2",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"order",
+						"getorders_customer",
+						""
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list ordered products count based on date",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2NDAwNTgwNDd9.dGILocNKTfKX5cGEfBeP0W_6mDoIBPsL8ckTVZgr8Ok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4500/order/getorderscount_date/?date=21-12-2021",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"order",
+						"getorderscount_date",
+						""
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "21-12-2021"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer based on product count",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2NDAwNTgwNDd9.dGILocNKTfKX5cGEfBeP0W_6mDoIBPsL8ckTVZgr8Ok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4500/order/getcustomer_product",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"order",
+						"getcustomer_product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer based on product count giving",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6MSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSJ9LCJpYXQiOjE2NDAwNTgwNDd9.dGILocNKTfKX5cGEfBeP0W_6mDoIBPsL8ckTVZgr8Ok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4500/order/getcustomer_givenproduct",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"order",
+						"getcustomer_givenproduct"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
